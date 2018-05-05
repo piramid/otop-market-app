@@ -1,8 +1,8 @@
 <template>
   <div>
-      <h1>Chat Room</h1>
+      <h1>Online Chat Order</h1>
       <div>
-          <v-text-field v-model="name" label="ชื่อสินค้า"></v-text-field>
+          <v-text-field v-model="name" label="ชื่อลูกค้า"></v-text-field>
                 <v-text-field v-model="text" label="ข้อความ"></v-text-field>
                     <v-btn @click="send">ส่ง</v-btn>    
       </div>

@@ -70,6 +70,14 @@
           </v-list-tile-content>
         </v-list-tile>
 
+        <v-list-tile @click="doM8">
+          <v-list-tile-action>
+            <v-icon>record_voice_over</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Chat Order</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
 
       </v-list>
     </v-navigation-drawer>
@@ -157,6 +165,9 @@ export default {
     },
     doM7(){
 
+    },
+    doM8(){
+      this.$router.push('/chat')
     },
     drawer(){
       
