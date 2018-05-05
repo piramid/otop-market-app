@@ -60,13 +60,22 @@
                 ></v-text-field>
               </v-flex>
 
-              <v-flex xs12>
+<v-flex xs12>
+          <v-checkbox label="ติดดาว 1 ดวง" v-model="checkbox1" @click="cb1"></v-checkbox>
+          <v-checkbox label="ติดดาว 2 ดวง" v-model="checkbox2" @click="cb2"></v-checkbox>
+          <v-checkbox label="ติดดาว 3 ดวง" v-model="checkbox3" @click="cb3"></v-checkbox>
+
+</v-flex>
+
+              <!-- <v-flex xs12>
                 <v-text-field
                   :rules="[(v) => v.length <= 50 || 'Max 50 characters']"
                   :counter="50"
                   v-model="star1"
                   label="ดาว 1"
                 ></v-text-field>
+              <v-checkbox :label="`ดาว 1 ดวง: ${checkbox1.toString()}`" v-model="checkbox1"></v-checkbox>
+
               </v-flex>
 
               <v-flex xs12>
@@ -76,6 +85,7 @@
                   v-model="star2"
                   label="ดาว 2"
                 ></v-text-field>
+              <v-checkbox :label="`ดาว 2 ดวง: ${checkbox2.toString()}`" v-model="checkbox2"></v-checkbox>
               </v-flex>
 
               <v-flex xs12>
@@ -85,7 +95,8 @@
                   v-model="star3"
                   label="ดาว 3"
                 ></v-text-field>
-              </v-flex>              
+              <v-checkbox :label="`ดาว 3 ดวง: ${checkbox3.toString()}`" v-model="checkbox3"></v-checkbox>
+              </v-flex>               -->
 
 
 
@@ -112,6 +123,13 @@
   export default {
     data () {
       return {
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        chk1: 0,
+        chk2: 0,
+        chk3: 0,
+
         pid: '',
         name: '',
         detail: '',
@@ -121,6 +139,11 @@
         star2: '',
         star3: '',
       }
+    },
+ 
+    created() {
+        console.log(this.checkbox1.toString())
+
     },
     methods: {
         async post() {
@@ -135,19 +158,53 @@
                 detail: this.detail,
                 price: this.price,
                 img: this.img,
-                star1: this.star1,
-                star2: this.star2,
-                star3: this.star3,
+                star1: this.chk1,
+                star2: this.chk2,
+                star3: this.chk3,
             })
              
 
             if (!res.data.ok) {
                 ///
+                this.$router.push('/product-list')
             } else {
                 ///
             }
             
         },
+
+        cb1() {
+            this.checkbox1 = !this.checkbox1
+            console.log(this.checkbox1.toString())
+            if (this.checkbox1 == true) {
+              console.log("OK")
+              this.chk1 = 1
+            } else {
+              this.chk1 = 0
+            }
+            console.log(this.chk1)
+        },
+        cb2() {
+            this.checkbox2 = !this.checkbox2
+            console.log(this.checkbox2.toString())
+            if (this.checkbox1 == true) {
+              this.chk2 = 1
+            } else {
+              this.chk2 = 0
+            }
+            console.log(this.chk2)
+        },
+        cb3() {
+            this.checkbox3 = !this.checkbox3
+            console.log(this.checkbox3.toString())
+            if (this.checkbox1 == true) {
+              this.chk3 = 1
+            } else {
+              this.chk3 = 0
+            }
+            console.log(this.chk3)
+        }
+
 
 
     },
