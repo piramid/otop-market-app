@@ -61,6 +61,15 @@
           </v-list-tile-content>
         </v-list-tile>
 
+        <v-list-tile @click="doM7">
+          <v-list-tile-action>
+            <v-icon>perm_identity</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>About</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
 
       </v-list>
     </v-navigation-drawer>
@@ -122,6 +131,7 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
 </style>
 
 <script>
@@ -131,7 +141,7 @@ export default {
       this.$router.push('/')
     },
     doM2(){
-      this.$router.push('')
+      this.$router.push('/login')
     },
     doM3(){
       this.$router.push('/product-post')
@@ -143,6 +153,9 @@ export default {
       this.$router.push('/product-list-for-edit')
     },
     doM6(){
+
+    },
+    doM7(){
 
     },
     drawer(){
